@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Page</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+
+        #message {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Signup Form</h2>
+
+    <form id="signupForm">
+
+        Name:
+        <input type="text" id="name" placeholder="Enter your name">
+
+        Email:
+        <input type="email" id="email" placeholder="Enter your email">
+
+        Password:
+        <input type="password" id="password" placeholder="Enter password">
+
+        <button type="submit">Signup</button>
+
+    </form>
+
+    <p id="message"></p>
+
+</div>
+
+<script>
+document.getElementById("signupForm").onsubmit = function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if (name == "" || email == "" || password == "") {
+        alert("Please fill all fields");
+    }
+    else {
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+        localStorage.setItem("password", password);
+
+        document.getElementById("message").innerHTML =
+            "Signup Successful";
+    }
+};
+</script>
+
+</body>
+</html>
